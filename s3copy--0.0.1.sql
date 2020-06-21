@@ -15,7 +15,7 @@ CREATE OR REPLACE FUNCTION s3copy.table_import_from_s3 (
    session_token text,
    endpoint_url text
 ) RETURNS int
-LANGUAGE plpythonu
+LANGUAGE plpython3u
 AS $$
     def cache_import(module_name):
         module_cache = SD.get('__modules__', {})

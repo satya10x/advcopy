@@ -1,0 +1,5 @@
+# s3copy extension
+comment = 's3copy wrapper for postgres'
+default_version = '0.0.1'
+module_pathname = '$libdir/s3copy'
+relocatable = true

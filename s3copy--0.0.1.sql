@@ -6,13 +6,6 @@ CREATE SCHEMA IF NOT EXISTS s3copy;
 CREATE OR REPLACE FUNCTION s3copy.table_import_from_s3 (
    table_name text,
    column_list text,
-   options text,
-   bucket text,
-   file_path text,
-   region text,
-   access_key text,
-   secret_key text,
-   session_token text,
    endpoint_url text
 ) RETURNS int
 LANGUAGE plpython3u

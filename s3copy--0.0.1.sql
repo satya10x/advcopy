@@ -71,8 +71,8 @@ AS $$
     bucket = parsed_s3_url.netloc
     file_path = parsed_s3_url.path.lstrip('/')
 
-    res = plpy.execute("COPY {query}  to {file_name} ;".format(
-                query=query,
+    res = plpy.execute("copy {query}  to {file_name} ;".format(
+                query=str(query).replace('"',"'"),
                 file_name=plpy.quote_literal('/tmp/{file_name}'.format(file_name=file_name))
             )
         )

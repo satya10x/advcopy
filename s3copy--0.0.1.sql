@@ -1,6 +1,3 @@
--- complain if script is sourced in psql, rather than via CREATE EXTENSION
-\echo Use "CREATE EXTENSION s3copy" to load this file. \quit
-
 CREATE SCHEMA IF NOT EXISTS s3copy;
 
 CREATE OR REPLACE FUNCTION s3copy.import_from_s3 (

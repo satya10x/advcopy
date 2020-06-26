@@ -1,0 +1,5 @@
+# advcopy extension
+comment = 'advcopy wrapper for postgres'
+default_version = '0.0.2'
+module_pathname = '$libdir/advcopy'
+relocatable = true

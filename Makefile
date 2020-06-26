@@ -1,5 +1,5 @@
-EXTENSION = s3copy        # the extensions name
-DATA = s3copy--0.0.1.sql  # script files to install
+EXTENSION = advcopy        # the extensions name
+DATA = advcopy--0.0.2.sql  # script files to install
 
 # postgres build stuff
 PG_CONFIG = pg_config

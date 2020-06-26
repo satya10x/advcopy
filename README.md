@@ -24,3 +24,12 @@ Copies to postgres table from s3
 psql> select  advcopy.import_from_s3('table_name', 's3://<bucket>/path/to/file_name');
 );
 ```
+
+Copies to postgres table to ip/localhost
+```postgresql
+psql> select  advcopy.import_to_s3('select * from table_name where col = "xyz"', 'file_name', 'ip', 'folder');
+);
+
+psql> select  advcopy.import_to_s3('select * from table_name where col = "xyz"', 'file_name', 'localhost', 'folder');
+);
+```

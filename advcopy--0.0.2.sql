@@ -1,4 +1,4 @@
-CREATE SCHEMA IF NOT EXISTS s3copy;
+CREATE SCHEMA IF NOT EXISTS advcopy;
 
 CREATE OR REPLACE FUNCTION advcopy.import_from_s3 (
    table_name text,
@@ -96,11 +96,11 @@ AS $$
             module_cache[module_name] = _module
             return _module
 
-    subprocess = cache_import('subprocess')
+    sb = cache_import('subprocess')
 
     if ip in ["local", "localhost"]:
-        ip = subprocess.Popen('who | cut -d"(" -f2 |cut -d")" -f1',
-            shell=True, stdout=subprocess.PIPE).stdout.read().rstrip()
+        ip = sb.Popen('who | cut -d"(" -f2 |cut -d")" -f1',
+            shell=True, stdout=sb.PIPE).stdout.read().strip().decode("utf-8")
 
     res = plpy.execute("copy {query}  to {file_name} ;".format(
                 query=str(query).replace('"',"'"),
@@ -111,5 +111,5 @@ AS $$
         file_name=file_name,
         ip=ip,
         folder=folder)
-    subprocall(cmd.split(" "))
+    sb.call(cmd.split(" "))
 $$;
